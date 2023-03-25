@@ -1,10 +1,10 @@
 package server;
 
 import javafx.util.Pair;
+import server.models.Course;
+import server.models.RegistrationForm;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -140,19 +140,63 @@ public class Server {
      Lire un fichier texte contenant des informations sur les cours et les transofmer en liste d'objets 'Course'.
      La méthode filtre les cours par la session spécifiée en argument.
      Ensuite, elle renvoie la liste des cours pour une session au client en utilisant l'objet 'objectOutputStream'.
-     @param arg la session pour laquelle on veut récupérer la liste des cours.
-     @throws Exception si une erreur se produit lors de la lecture du fichier ou de l'écriture de l'objet dans le flux.
+     La méthode gère les exceptions si une erreur se produit lors de la lecture du fichier ou de l'écriture de l'objet dans le flux.
+     @param arg la session pour laquelle on veut récupérer la liste des cours
      */
     public void handleLoadCourses(String arg) {
-        // TODO: implémenter cette méthode
+        ArrayList<Course> courses = new ArrayList<>();
+        try{
+            FileReader fileReader = new FileReader("cours.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String ligne;
+            while ((ligne = bufferedReader.readLine()) != null){
+                String[] tableauLigne = ligne.split("\t");
+                if(arg == tableauLigne[2]){
+                    courses.add(new Course(tableauLigne[1],tableauLigne[0],tableauLigne[2]));
+                }
+            }
+            bufferedReader.close();
+
+        } catch (FileNotFoundException e){
+            System.out.println("Le fichier est introuvable");
+        } catch (IOException e) {
+            System.out.println("Erreur à l'ouverture du fichier");
+        }
+
+        try {
+            objectOutputStream.writeObject(courses);
+        } catch (NotSerializableException e){
+            System.out.println("Objet non sérialisable");
+        } catch (IOException e){
+            System.out.println("Erreur à l'ouverture du fichier");
+        }
     }
 
     /**
      Récupérer l'objet 'RegistrationForm' envoyé par le client en utilisant 'objectInputStream', l'enregistrer dans un fichier texte
      et renvoyer un message de confirmation au client.
-     @throws Exception si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
+     La méthode gére les exceptions si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
      */
     public void handleRegistration() {
-        // TODO: implémenter cette méthode
+      try {
+          RegistrationForm registrationForm = (RegistrationForm) objectInputStream.readObject();
+
+          FileWriter fileWriter = new FileWriter("inscription.txt");
+          fileWriter.write(registrationForm.getCourse().getSession()+"\t"
+                        + registrationForm.getCourse().getCode()+"\t"
+                        + registrationForm.getMatricule()+"\t"
+                        + registrationForm.getPrenom()+"\t"
+                        + registrationForm.getNom()+"\t"
+                        + registrationForm.getEmail());
+
+          fileWriter.close();
+          System.out.println("Informations enregistrées");
+
+      } catch (IOException x){
+          System.out.println("Erreur à l'ouverture du fichier");
+      } catch (ClassNotFoundException e) {
+          System.out.println("Classe introuvable");
+      }
     }
 }
