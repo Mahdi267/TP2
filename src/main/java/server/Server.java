@@ -157,6 +157,7 @@ public class Server {
                 }
             }
             bufferedReader.close();
+            fileReader.close();
 
         } catch (FileNotFoundException e){
             System.out.println("Le fichier est introuvable");
@@ -166,6 +167,8 @@ public class Server {
 
         try {
             objectOutputStream.writeObject(courses);
+            objectInputStream.close();
+
         } catch (NotSerializableException e){
             System.out.println("Objet non sérialisable");
         } catch (IOException e){
