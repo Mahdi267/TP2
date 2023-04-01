@@ -196,6 +196,9 @@ public class Server {
           fileWriter.close();
           System.out.println("Informations enregistrées");
 
+          objectOutputStream.writeChars("Informations enregistrées");
+          objectOutputStream.close();
+
       } catch (IOException x){
           System.out.println("Erreur à l'ouverture du fichier");
       } catch (ClassNotFoundException e) {
