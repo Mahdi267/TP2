@@ -1,46 +1,64 @@
 package client;
 
-import server.models.Course;
-
 import  java.net.Socket;
 import  java.io.*;
+import  java.util.Scanner;
 
 public class Main {
     public final static int PORT = 1337;
-    public void charger(String session) throws IOException{
-        Socket socket = new Socket("127.0.0.1", PORT);
-        OutputStream os = socket.getOutputStream();
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
-
-        writer.write("CHARGER");
-
-        InputStream is = socket.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-        String line;
-        int i = 0;
-
-        while((line = reader.readLine()) != null){
-            String[] tabCours = line.split("\t");
-            if(tabCours[2] == session){
-                System.out.println(i + ". " + tabCours[0] + "\t" + tabCours[1] + "\n");
-                i++;
-            }
-        }
-        socket.close();
-    }
-
-    public void inscrire(String prenom, String nom, String email, String matricule, Course cours) throws IOException{
-        Socket socket = new Socket("127.0.0.1", PORT);
-        OutputStream os =  socket.getOutputStream();
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
-
-        writer.write("INSCRIRE " + prenom + " " + nom + " " + matricule + " " + matricule + " " + cours);
-
-        // verifier si les cours sont disponibles dans la liste de cours
-    }
-
     public static void main(String[] args) {
+        try {
+            Socket socket = new Socket("127.0.0.11", PORT);
+            OutputStream os = new ObjectOutputStream(socket.getOutputStream());
+            InputStream is = new ObjectInputStream(socket.getInputStream());
 
+            System.out.println("***Bienvenue au portail d'inscription de cours de l'UDEM***");
+            System.out.println("Veuillez choisir la session pour laquelle vous voulez consulter la liste de  cours:");
+            System.out.println("1. Automne\n2. Hiver\n3. Ete");
+
+            System.out.println("> Choix:");
+            Scanner scanner = new Scanner(System.in);
+
+            Inscription inscription = new Inscription();
+            Boolean condition = true;
+            while (condition) {
+                int choix = scanner.nextInt();
+                switch (choix) {
+                    case 1:
+                        inscription.charger("Automne", new ObjectOutputStream(os), new ObjectInputStream(is));
+                        break;
+                    case 2:
+                        inscription.charger("Hiver", new ObjectOutputStream(os), new ObjectInputStream(is));
+                        break;
+                    case 3:
+                        inscription.charger("Ete", new ObjectOutputStream(os), new ObjectInputStream(is));
+                        break;
+                    default:
+                        System.out.println("Session indisponible");
+                        break;
+                }
+
+                System.out.println("> Choix:\n");
+                System.out.println("1. Consulter les cours offerts pour une autre session");
+                System.out.println("2. Inscription à un cours");
+
+                choix = scanner.nextInt();
+                switch (choix) {
+                    case 1:
+                        break;
+                    case 2:
+                        condition = false;
+                        break;
+                }
+            }
+
+        // appeler la fonction inscrire
+
+        }
+        catch (IOException e){
+            System.out.println("IO erreur");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Classe introuvable");
+        }
     }
 }
