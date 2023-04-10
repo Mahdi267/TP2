@@ -145,33 +145,29 @@ public class Server {
      */
     public void handleLoadCourses(String arg) {
         ArrayList<Course> courses = new ArrayList<>();
-        try{
-            FileReader fileReader = new FileReader("src/main/java/server/data/cours.txt");
+        try {
+            FileReader fileReader = new FileReader("cours.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String ligne;
-            while ((ligne = bufferedReader.readLine()) != null){
+            while ((ligne = bufferedReader.readLine()) != null) {
                 String[] tableauLigne = ligne.split("\t");
-                if(arg == tableauLigne[2]){
-                    courses.add(new Course(tableauLigne[1],tableauLigne[0],tableauLigne[2]));
+                if (arg == tableauLigne[2]) {
+                    courses.add(new Course(tableauLigne[1], tableauLigne[0], tableauLigne[2]));
                 }
             }
-            bufferedReader.close();
-            fileReader.close();
 
-        } catch (FileNotFoundException e){
-            System.out.println("Le fichier est introuvable");
-        } catch (IOException e) {
-            System.out.println("Erreur à l'ouverture du fichier");
-        }
-
-        try {
             objectOutputStream.writeObject(courses);
             objectInputStream.close();
 
-        } catch (NotSerializableException e){
+            bufferedReader.close();
+            fileReader.close();
+
+        } catch (NotSerializableException e) {
             System.out.println("Objet non sérialisable");
-        } catch (IOException e){
+        } catch (FileNotFoundException e) {
+            System.out.println("Le fichier est introuvable");
+        } catch (IOException e) {
             System.out.println("Erreur à l'ouverture du fichier");
         }
     }
@@ -185,7 +181,7 @@ public class Server {
       try {
           RegistrationForm registrationForm = (RegistrationForm) objectInputStream.readObject();
 
-          FileWriter fileWriter = new FileWriter("src/main/java/server/data/inscription.txt");
+          FileWriter fileWriter = new FileWriter("inscription.txt");
           fileWriter.write(registrationForm.getCourse().getSession()+"\t"
                         + registrationForm.getCourse().getCode()+"\t"
                         + registrationForm.getMatricule()+"\t"
@@ -196,7 +192,7 @@ public class Server {
           fileWriter.close();
           System.out.println("Informations enregistrées");
 
-          objectOutputStream.writeChars("Informations enregistrées");
+          objectOutputStream.writeChars("Félicitation! Inscription réuissie de " + registrationForm.getPrenom() + "au cours " + registrationForm.getCourse().getName() + ".");
           objectOutputStream.close();
 
       } catch (IOException x){
