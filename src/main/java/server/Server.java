@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Classe contenant les instructions côté serveur.
@@ -146,25 +147,22 @@ public class Server {
     public void handleLoadCourses(String arg) {
         ArrayList<Course> courses = new ArrayList<>();
         try {
-            FileReader fileReader = new FileReader("cours.txt");
+            FileReader fileReader = new FileReader("src/main/java/server/data/cours.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String ligne;
             while ((ligne = bufferedReader.readLine()) != null) {
                 String[] tableauLigne = ligne.split("\t");
-                if (arg == tableauLigne[2]) {
+                if (Objects.equals(arg, tableauLigne[2])) {
                     courses.add(new Course(tableauLigne[1], tableauLigne[0], tableauLigne[2]));
                 }
             }
 
             objectOutputStream.writeObject(courses);
-            objectInputStream.close();
 
-            bufferedReader.close();
-            fileReader.close();
 
         } catch (NotSerializableException e) {
-            System.out.println("Objet non sérialisable");
+            System.out.println("Objet non serializable");
         } catch (FileNotFoundException e) {
             System.out.println("Le fichier est introuvable");
         } catch (IOException e) {
@@ -175,13 +173,13 @@ public class Server {
     /**
      Récupérer l'objet 'RegistrationForm' envoyé par le client en utilisant 'objectInputStream', l'enregistrer dans un fichier texte
      et renvoyer un message de confirmation au client.
-     La méthode gére les exceptions si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
+     La méthode gère les exceptions si une erreur se produit lors de la lecture de l'objet, l'écriture dans un fichier ou dans le flux de sortie.
      */
     public void handleRegistration() {
       try {
           RegistrationForm registrationForm = (RegistrationForm) objectInputStream.readObject();
 
-          FileWriter fileWriter = new FileWriter("inscription.txt");
+          FileWriter fileWriter = new FileWriter("src/main/java/server/data/inscription.txt");
           fileWriter.write(registrationForm.getCourse().getSession()+"\t"
                         + registrationForm.getCourse().getCode()+"\t"
                         + registrationForm.getMatricule()+"\t"
@@ -192,8 +190,7 @@ public class Server {
           fileWriter.close();
           System.out.println("Informations enregistrées");
 
-          objectOutputStream.writeChars("Félicitation! Inscription réuissie de " + registrationForm.getPrenom() + "au cours " + registrationForm.getCourse().getName() + ".");
-          objectOutputStream.close();
+          objectOutputStream.writeObject("Félicitation! Inscription réussie de " + registrationForm.getPrenom() + " au cours " + registrationForm.getCourse().getCode() + ".");
 
       } catch (IOException x){
           System.out.println("Erreur à l'ouverture du fichier");

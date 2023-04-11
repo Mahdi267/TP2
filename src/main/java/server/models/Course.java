@@ -15,7 +15,7 @@ public class Course implements Serializable {
      * Créer une nouvelle instance de la classe Course.
      * @param name de type String, nom du cours.
      * @param code de type String, code du cours.
-     * @param session de type String, session pendant laquelle est donné le cours.
+     * @param session de type String, session pendant laquelle est donnée le cours.
      */
     public Course(String name, String code, String session) {
         this.name = name;
