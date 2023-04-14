@@ -7,21 +7,27 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TP:jar" />
+      <artifact name="Main:Jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08ebdec-9724-4182-9f01-cdcde185e4bc" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/TP_jar/TP.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="e08ebdec-9724-4182-9f01-cdcde185e4bc" name="Changes" comment="JAR">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Client_Jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Server_Jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Main_Jar/TP.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_jar/TP.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Controleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Modele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Modele.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Vue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/data/inscription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/data/inscription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +44,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="758e206f-8850-411d-b174-17a327e11c3f" />
+        <option name="url" value="https://github.com/Mahdi267/TP.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,8 +82,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
@@ -74,13 +93,27 @@
       <recent name="$PROJECT_DIR$/javaDocs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.MainFX">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Main" />
       <module name="TP" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="clientFX.MainFX" />
+      <module name="TP" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/javafx-sdk-19.0.2.1/lib --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="clientFX.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,8 +134,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.MainFX" />
+      <item itemvalue="Application.ServerLauncher" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainFX" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.ServerLauncher" />
       </list>
@@ -194,8 +233,47 @@
       <option name="project" value="LOCAL" />
       <updated>1681085047198</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <created>1681184528177</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681184528177</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Main jar">
+      <created>1681238053700</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681238053700</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Client FX">
+      <created>1681257573977</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681257573977</updated>
+    </task>
+    <task id="LOCAL-00015" summary="JAR">
+      <created>1681257591228</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681257591228</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
@@ -205,6 +283,9 @@
     <MESSAGE value="Client" />
     <MESSAGE value="JavaDoc" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Main jar" />
+    <MESSAGE value="Client FX" />
+    <MESSAGE value="JAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="JAR" />
   </component>
 </project>
