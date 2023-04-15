@@ -7,11 +7,14 @@ import javafx.stage.Stage;
 public class MainFX extends Application{
     @Override
     public void start(Stage stage) {
+        Modele modele = new Modele();
         Vue vue = new Vue();
+        Controleur controleur = new Controleur(modele, vue);
+
         Scene scene = new Scene(vue, 600, 500);
 
         stage.setScene(scene);
-        stage.setTitle("titre");
+        stage.setTitle("Inscription UDEM");
         stage.show();
     }
 

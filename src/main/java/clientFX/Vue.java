@@ -1,10 +1,13 @@
 package clientFX;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,6 +22,8 @@ public class Vue extends HBox {
     private final TextField textNom = new TextField();
     private final TextField textEmail = new TextField();
     private final TextField textMatricule = new TextField();
+    private final TableView<Course> table = new TableView<>();
+    private final ObservableList<Course> listeCours = FXCollections.observableArrayList();
 
     public Vue(){
         // Ajouter les VBox à droite et à gauche du BorderPane et le séparateur
@@ -38,9 +43,10 @@ public class Vue extends HBox {
         vBoxDroite.setPrefWidth(this.getPrefWidth() / 2);
 
         // Ajouter la table où seront affichées les cours disponibles de la session choisie
-        TableView<Course> table = new TableView<>();
         TableColumn<Course, String> code = new TableColumn<>("Code");
         TableColumn<Course, String> cours = new TableColumn<>("Cours");
+        code.setCellValueFactory(new PropertyValueFactory<>("name"));
+        cours.setCellValueFactory(new PropertyValueFactory<>("code"));
         table.getColumns().addAll(code, cours);
         vBoxGauche.setSpacing(5);
         vBoxGauche.setPadding(new Insets(10, 0, 0, 0));
@@ -52,7 +58,7 @@ public class Vue extends HBox {
         // Ajouter une HBox pour placer la liste déroulante et le bouton charger
         HBox sessionBox = new HBox();
         sessionBox.setSpacing(20);
-        session.getItems().addAll("Hiver", "Automne", "Été");
+        session.getItems().addAll("Hiver", "Automne", "Ete");
         sessionBox.setPrefWidth(vBoxGauche.getPrefWidth());
         sessionBox.setAlignment(Pos.CENTER);
         sessionBox.getChildren().addAll(session, charger);
@@ -137,5 +143,21 @@ public class Vue extends HBox {
      */
     public TextField getTextMatricule() {
         return textMatricule;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public TableView<Course> getTable() {
+        return table;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ObservableList<Course> getListeCours() {
+        return listeCours;
     }
 }

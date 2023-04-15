@@ -1,13 +1,12 @@
 package clientFX;
 
+
 import server.models.Course;
 import server.models.RegistrationForm;
 
 import java.net.Socket;
 import java.util.ArrayList;
 import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Modele {
     private final int PORT = 1337;

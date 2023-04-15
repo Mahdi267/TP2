@@ -14,20 +14,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08ebdec-9724-4182-9f01-cdcde185e4bc" name="Changes" comment="JAR">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Client_Jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Server_Jar.xml" afterDir="false" />
+    <list default="true" id="e08ebdec-9724-4182-9f01-cdcde185e4bc" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Main_Jar/TP.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_jar/TP.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Controleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/MainFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Modele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Modele.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/clientFX/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientFX/Vue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/data/inscription.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/data/inscription.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +38,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -77,17 +70,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/javaDocs" />
@@ -142,8 +135,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainFX" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.ServerLauncher" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681257591228</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update">
+      <created>1681431203907</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681431203907</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,10 +282,10 @@
     <MESSAGE value="Côté serveur complété" />
     <MESSAGE value="Client" />
     <MESSAGE value="JavaDoc" />
-    <MESSAGE value="update" />
     <MESSAGE value="Main jar" />
     <MESSAGE value="Client FX" />
     <MESSAGE value="JAR" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAR" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
