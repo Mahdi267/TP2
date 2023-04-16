@@ -57,8 +57,8 @@ public class Vue extends HBox {
         // Ajouter la table où seront affichées les cours disponibles de la session choisie
         TableColumn<Course, String> code = new TableColumn<>("Code");
         TableColumn<Course, String> cours = new TableColumn<>("Cours");
-        code.setCellValueFactory(new PropertyValueFactory<>("name"));
-        cours.setCellValueFactory(new PropertyValueFactory<>("code"));
+        code.setCellValueFactory(new PropertyValueFactory<>("code"));
+        cours.setCellValueFactory(new PropertyValueFactory<>("name"));
         table.getColumns().addAll(code, cours);
         vBoxGauche.setSpacing(5);
         vBoxGauche.setPadding(new Insets(10, 0, 0, 0));
