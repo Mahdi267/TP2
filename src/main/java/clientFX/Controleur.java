@@ -4,6 +4,11 @@ import server.models.Course;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Lie le modèle avec la vue.
+ * Ne connait ni de détaille d'implémentation du comportement
+ * ni de détailles de structuration du GUI
+ */
 public class Controleur {
 
     private Modele modele;
@@ -11,9 +16,10 @@ public class Controleur {
     private ArrayList<Course> courses;
 
     /**
-     *
-     * @param m
-     * @param v
+     * Définition du comportement de chaque handler est
+     * mise dans sa propre méthode auxiliaire.
+     * @param m modèle du GUI
+     * @param v vue du GUI
      */
     public Controleur(Modele m, Vue v){
         this.modele = m;
@@ -28,9 +34,6 @@ public class Controleur {
         });
     }
 
-    /**
-     *
-     */
     private void chrg(){
         try {
             // Vider la table si des cours d'une autre session y sont affichés
@@ -53,9 +56,6 @@ public class Controleur {
         }
     }
 
-    /**
-     *
-     */
     private void inscr(){
         try {
             String prenom = vue.getTextPrenom().getText();
@@ -63,9 +63,12 @@ public class Controleur {
             String email = vue.getTextEmail().getText();
             String matricule = vue.getTextMatricule().getText();
 
-            // Gérer le cas ou les zones de textes sont vides
+            // Gérer le cas ou les zones de textes sont vides ou males formatées
             Erreur erreur = new Erreur(vue);
-            erreur.verifier();
+            if(!erreur.verifierText()) return;
+
+            // Vérifier que l'utilisateur a choisi un cours
+            if(!erreur.verifierTable()) return;
 
             // Création du cours
             String nomCours = vue.getListeCours().get(0).getName();

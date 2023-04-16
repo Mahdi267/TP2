@@ -14,6 +14,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import server.models.Course;
 
+/**
+ * La classe Vue étend HBox pour créer la vue graphique de l'application.
+ * Elle contient des éléments de saisie d'information pour l'inscription
+ * à des cours universitaires, ainsi que la liste des cours disponibles
+ * pour une session choisie.
+ */
 public class Vue extends HBox {
     private final Button charger = new Button("charger");
     private final Button envoyer = new Button("envoyer");
@@ -25,6 +31,12 @@ public class Vue extends HBox {
     private final TableView<Course> table = new TableView<>();
     private final ObservableList<Course> listeCours = FXCollections.observableArrayList();
 
+    /**
+     * Construit une vue graphique pour l'inscription à des cours universitaires.
+     * La vue contient des éléments de saisie d'information pour l'inscription
+     * à des cours universitaires, ainsi que la liste des cours disponibles
+     * pour une session choisie.
+     */
     public Vue(){
         // Ajouter les VBox à droite et à gauche du BorderPane et le séparateur
         VBox vBoxDroite = new VBox();
@@ -97,65 +109,63 @@ public class Vue extends HBox {
     }
 
     /**
-     * @return
+     * @return Bouton charger
      */
     public Button getCharger() {
         return charger;
     }
 
     /**
-     * @return
+     * @return Bouton envoyer
      */
     public Button getEnvoyer() {
         return envoyer;
     }
 
     /**
-     * @return
+     * @return Liste déroulante
      */
     public ComboBox<String> getSession() {
         return session;
     }
 
     /**
-     * @return
+     * @return Champ de texte pour le prénom
      */
     public TextField getTextPrenom() {
         return textPrenom;
     }
 
     /**
-     * @return
+     * @return Champ de texte pour le nom
      */
     public TextField getTextNom() {
         return textNom;
     }
 
     /**
-     * @return
+     * @return Champ de texte pour l'email
      */
     public TextField getTextEmail() {
         return textEmail;
     }
 
     /**
-     * @return
+     * @return Champ de texte pour le matricule
      */
     public TextField getTextMatricule() {
         return textMatricule;
     }
 
     /**
-     *
-     * @return
+     * @return Tableau des cours de la session
      */
     public TableView<Course> getTable() {
         return table;
     }
 
     /**
-     *
-     * @return
+     * @return Liste des cours disponible durant la session
      */
     public ObservableList<Course> getListeCours() {
         return listeCours;
