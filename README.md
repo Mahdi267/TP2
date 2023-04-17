@@ -4,6 +4,6 @@
 
 * Pour build le fichier JAR du serveur j'ai changer le path des fchiers inscription.txt et cours.txt <br>
 `FileWriter fileWriter = new FileWriter("src/main/java/server/data/inscription.txt")` -> version pour l'IDE <br>
-`FileWriter fileWriter = new FileWriter("inscription.txt")` -> version pour build le JAR <br>
+`FileWriter fileWriter = new FileWriter("./inscription.txt")` -> version pour build le JAR <br>
 De même pour le fichier cours.txt <br>
 Les fichiers ne sont toutes fois toujours pas atteignables même si je les place dans le même dossier
